@@ -1,4 +1,4 @@
 package com.mainacad.dao;
 
-public class BaseDAO {
+public abstract class BaseDAO<T> {
 }

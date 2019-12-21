@@ -14,12 +14,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "carts")
-public class Cart {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer id;
+public class Cart extends BaseEntity{
 
     @Column(name = "status")
     private Status status;
@@ -30,7 +25,8 @@ public class Cart {
     @Column(name = "creation_time")
     private Long creationTime;
 
-    public Cart(Status status, User user, Long creationTime) {
+    public Cart(Integer id, Status status, User user, Long creationTime) {
+        super(id);
         this.status = status;
         this.user = user;
         this.creationTime = creationTime;

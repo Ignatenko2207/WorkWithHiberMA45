@@ -13,12 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "orders")
-public class Order {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer id;
+public class Order extends BaseEntity{
 
     @ManyToOne(targetEntity = Item.class)
     private Item item;
@@ -29,7 +24,8 @@ public class Order {
     @Column(name = "amount")
     private Integer amount;
 
-    public Order(Item item, Cart cart, Integer amount) {
+    public Order(Integer id, Item item, Cart cart, Integer amount) {
+        super(id);
         this.item = item;
         this.cart = cart;
         this.amount = amount;
